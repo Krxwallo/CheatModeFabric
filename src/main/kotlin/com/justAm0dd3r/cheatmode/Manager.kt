@@ -1,23 +1,24 @@
-package org.example.examplemod
+package com.justAm0dd3r.cheatmode
 
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.api.DedicatedServerModInitializer
 import net.fabricmc.api.ModInitializer
 import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 
-val logger = LogManager.getLogger("examplemod")
+val logger: Logger = LogManager.getLogger("CheatMode")
 
 object Manager: ModInitializer, DedicatedServerModInitializer, ClientModInitializer {
 
-    override fun onInitialize() {
-        // Common initialization
-    }
+    override fun onInitialize() {}
 
     override fun onInitializeClient() {
-        // Client initialization
+        logger.info("client")
+        Hooks.initClient()
     }
 
     override fun onInitializeServer() {
-        // Dedicated server initialization
+        logger.info("server")
+        Hooks.initServer()
     }
 }

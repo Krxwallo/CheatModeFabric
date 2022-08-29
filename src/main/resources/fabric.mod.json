@@ -1,42 +1,42 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "cheatmode",
   "version": "${version}",
-  "name": "Example Mod",
-  "description": "Example description",
+  "name": "Cheat Mode",
+  "description": "Access the creative inventory from the survival mode",
   "authors": [
-    "Joe"
+    "JustAm0dd3r"
   ],
   "contact": {
-    "homepage": "https://example.com/",
-    "issues": "https://example.com/",
-    "sources": "https://example.com/"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/cheat-mode",
+    "issues": "https://github.com/Krxwallo/CheatMode/issues",
+    "sources": "https://github.com/Krxwallo/CheatMode"
   },
   "license": "GPLv3+",
-  "icon": "assets/examplemod/icon.png",
+  "icon": "assets/cheatmode/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
       {
         "adapter": "kotlin",
-        "value": "org.example.examplemod.Manager"
+        "value": "com.justAm0dd3r.cheatmode.Manager"
       }
     ],
     "server": [
       {
         "adapter": "kotlin",
-        "value": "org.example.examplemod.Manager"
+        "value": "com.justAm0dd3r.cheatmode.Manager"
       }
     ],
     "client": [
       {
         "adapter": "kotlin",
-        "value": "org.example.examplemod.Manager"
+        "value": "com.justAm0dd3r.cheatmode.Manager"
       }
     ]
   },
   "mixins": [
-    "examplemod.mixins.json"
+    "cheatmode.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.13.1",

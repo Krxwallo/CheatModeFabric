@@ -1,12 +1,12 @@
 val javaVersion = 17
-val silkVersion = "1.9.1"
+val silkVersion = "1.9.2"
 
 plugins {
     kotlin("jvm") version "1.7.10"
     id("fabric-loom") version "0.12-SNAPSHOT"
 }
 
-group = "org.example"
+group = "com.justAm0dd3r"
 version = "1.0.0"
 
 repositories {
