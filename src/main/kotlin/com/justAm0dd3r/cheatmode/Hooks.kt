@@ -13,7 +13,7 @@ import net.minecraft.client.gui.screen.ingame.InventoryScreen
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.world.GameMode
 
-val mc get() = MinecraftClient.getInstance()
+val mc: MinecraftClient get() = MinecraftClient.getInstance()
 val singleplayer get() = MinecraftClient.getInstance().isInSingleplayer
 val serverPlayer get() = MinecraftClient.getInstance().server?.playerManager?.getPlayer(MinecraftClient.getInstance().player?.uuid)
 private var firstTime = true
@@ -28,7 +28,7 @@ object Hooks {
 
     @Environment(EnvType.SERVER)
     fun initServer() {
-        ServerPlayNetworking.registerGlobalReceiver(Packets.OPEN_INVENTORY) { server, player, _, _, _ ->
+        ServerPlayNetworking.registerGlobalReceiver(Packets.OPEN_INVENTORY) { _, player, _, _, _ ->
             onOpenInventory(player)
         }
         ServerPlayNetworking.registerGlobalReceiver(Packets.CLOSE_INVENTORY) { _, player, _, _, _ ->
