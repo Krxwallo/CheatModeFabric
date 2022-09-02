@@ -27,7 +27,7 @@ object ConfigManager {
     private val configFile = File("${mc.runDirectory}${File.separator}config${File.separator}cheatmode-client.json").apply {
         if (!exists()) {
             LogUtils.getLogger().warn("No config file found. Creating new one.")
-            save()
+            writeText("{}")
         }
     }
 

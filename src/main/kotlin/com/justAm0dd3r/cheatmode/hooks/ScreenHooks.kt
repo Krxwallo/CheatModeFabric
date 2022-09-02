@@ -49,7 +49,7 @@ object ScreenHooks {
         else mc.player?.sendCommand("gamemode creative")
     }
 
-    // maybe render tooltip
+    // maybe render tooltip todo fix no bg
     fun onScreenDraw(screen: Screen, stack: MatrixStack, mouseX: Int, mouseY: Int) {
         if (screen is InventoryScreen && button?.isMouseOver(mouseX.toDouble(), mouseY.toDouble()) == true)
             screen.renderTooltip(stack, Text.translatable("gui.cheatmode.open_creative_inventory"), mouseX, mouseY)
