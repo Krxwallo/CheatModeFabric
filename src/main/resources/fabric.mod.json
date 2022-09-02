@@ -14,7 +14,7 @@
   },
   "license": "GPLv3+",
   "icon": "assets/cheatmode/icon.png",
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
     "client": [
       {
