@@ -4,10 +4,11 @@ val silkVersion = "1.9.2"
 plugins {
     kotlin("jvm") version "1.7.10"
     id("fabric-loom") version "0.12-SNAPSHOT"
+    kotlin("plugin.serialization") version "1.6.10"
 }
 
 group = "com.justAm0dd3r"
-version = "1.0.0-alpha"
+version = "1.19.2-1.0.0-alpha"
 
 repositories {
     mavenCentral()

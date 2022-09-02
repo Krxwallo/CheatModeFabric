@@ -1,24 +1,19 @@
 package com.justAm0dd3r.cheatmode
 
 import net.fabricmc.api.ClientModInitializer
-import net.fabricmc.api.DedicatedServerModInitializer
-import net.fabricmc.api.ModInitializer
-import org.apache.logging.log4j.LogManager
-import org.apache.logging.log4j.Logger
+import net.minecraft.client.MinecraftClient
+import net.minecraft.server.network.ServerPlayerEntity
+import net.minecraft.world.GameMode
 
-val logger: Logger = LogManager.getLogger("CheatMode")
+val mc: MinecraftClient get() = MinecraftClient.getInstance()
+val isSingleplayer: Boolean get() = mc.isInSingleplayer
+val serverPlayer: ServerPlayerEntity? get() = mc.server?.playerManager?.getPlayer(mc.player?.uuid)
 
-object Manager: ModInitializer, DedicatedServerModInitializer, ClientModInitializer {
-
-    override fun onInitialize() {}
+object Manager: ClientModInitializer {
+    var screenOpen = false
+    var previousGameMode = GameMode.SURVIVAL
 
     override fun onInitializeClient() {
-        logger.info("client")
-        Hooks.initClient()
-    }
-
-    override fun onInitializeServer() {
-        logger.info("server")
-        Hooks.initServer()
+        ConfigManager.init()
     }
 }

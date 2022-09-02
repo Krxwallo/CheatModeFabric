@@ -3,31 +3,19 @@
   "id": "cheatmode",
   "version": "${version}",
   "name": "Cheat Mode",
-  "description": "Access the creative inventory from the survival mode",
+  "description": "Access the creative inventory from survival, configure your reach, disable damage, etc.\nFor testing stuff out in survival.\nNeeds gamemode permissions to work correctly on servers!",
   "authors": [
     "JustAm0dd3r"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/cheat-mode",
-    "issues": "https://github.com/Krxwallo/CheatMode/issues",
-    "sources": "https://github.com/Krxwallo/CheatMode"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/cheat-mode-fabric",
+    "issues": "https://github.com/Krxwallo/CheatModeFabric/issues",
+    "sources": "https://github.com/Krxwallo/CheatModeFabric"
   },
   "license": "GPLv3+",
   "icon": "assets/cheatmode/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      {
-        "adapter": "kotlin",
-        "value": "com.justAm0dd3r.cheatmode.Manager"
-      }
-    ],
-    "server": [
-      {
-        "adapter": "kotlin",
-        "value": "com.justAm0dd3r.cheatmode.Manager"
-      }
-    ],
     "client": [
       {
         "adapter": "kotlin",
