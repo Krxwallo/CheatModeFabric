@@ -1,8 +1,8 @@
 package com.justAm0dd3r.cheatmode.hooks
 
 import com.justAm0dd3r.cheatmode.*
+import com.justAm0dd3r.cheatmode.extensions.addDrawableChild
 import com.justAm0dd3r.cheatmode.mixins.HandledScreenAccessor
-import com.justAm0dd3r.cheatmode.utils.addButton
 import com.justAm0dd3r.cheatmode.widget.ItemButton
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen
@@ -23,7 +23,7 @@ object ScreenHooks {
                 button = ItemButton(handledScreen.x + 77, handledScreen.y + 30) {
                     creative()
                 }
-                screen.addButton(button!!)
+                screen.addDrawableChild(button!!)
             }
         }
     }

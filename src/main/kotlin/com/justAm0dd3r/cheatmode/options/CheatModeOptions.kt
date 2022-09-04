@@ -1,43 +1,24 @@
 package com.justAm0dd3r.cheatmode.options
 
 import com.justAm0dd3r.cheatmode.ConfigManager
+import com.justAm0dd3r.cheatmode.mc
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
-import net.minecraft.client.option.GameOptions
-import net.minecraft.client.option.SimpleOption
-import net.minecraft.text.Text
-import net.minecraft.text.Text.translatable
-import net.minecraft.util.math.MathHelper
 import java.util.*
 
 @Environment(EnvType.CLIENT)
-object CheatModeOptions {
-    val instantCreativeInventory: SimpleOption<Boolean> = SimpleOption.ofBoolean(
-        "cheatmode.options.instant_creative_inventory",
-        ConfigManager.client.instantCreativeInventory
-    ) { value ->
-        ConfigManager.client.instantCreativeInventory = value
+val options = arrayOf(
+    BooleanOption("cheatmode.options.instant_creative_inventory", ConfigManager.client.instantCreativeInventory).onChange {
+        ConfigManager.client.instantCreativeInventory = it
+        ConfigManager.save()
+    },
+    BooleanOption("cheatmode.options.flight", ConfigManager.client.flight).onChange {
+        ConfigManager.client.flight = it
+        ConfigManager.save()
+        if (!it) mc.player?.abilities?.flying = false
+    },
+    DoubleOption("cheatmode.options.reach", ConfigManager.client.reach, {it * 50}, {it / 50}).onChange {
+        ConfigManager.client.reach = it
         ConfigManager.save()
     }
-
-    val flight: SimpleOption<Boolean> = SimpleOption.ofBoolean(
-        "cheatmode.options.flight",
-        ConfigManager.client.flight
-    ) { value ->
-        ConfigManager.client.flight = value
-        ConfigManager.save()
-    }
-
-    @Suppress("INACCESSIBLE_TYPE")
-    val reach: SimpleOption<Double> = SimpleOption(
-        "cheatmode.options.reach",
-        SimpleOption.constantTooltip(translatable("options.cheatmode.reach.tooltip")),
-        { title, value -> GameOptions.getGenericValueText(title, Text.literal(String.format(Locale.ROOT, "%.1f", value * 50))) },
-        SimpleOption.DoubleSliderCallbacks.INSTANCE.withModifier(MathHelper::square, Math::sqrt),
-        ConfigManager.client.reach / 50,
-        { value ->
-            ConfigManager.client.reach = value * 50
-            ConfigManager.save()
-        }
-    )
-}
+)
