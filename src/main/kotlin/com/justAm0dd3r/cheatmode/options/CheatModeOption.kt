@@ -28,10 +28,12 @@ class BooleanOption(title: String, value: Boolean, tooltip: String? = null) : Ch
     override fun value() = if (value) "ON" else "OFF"
 }
 
-// TODO modifier (math.square, math.sqrt) for smaller intervals at the beginning
-class DoubleOption(title: String, value: Double, private val from: (Double) -> Double, to: (Double) -> Double, tooltip: String? = null)
-    : CheatModeOption<Double>(title, to(value), tooltip) {
-    override fun widget(x: Int, y: Int, width: Int, height: Int) = OptionSliderWidget(this, x, y, width, height, text, value, onValueChange)
+class DoubleOption(title: String, value: Double, private val from: (Double) -> Double, private val to: (Double) -> Double, tooltip: String? = null)
+    : CheatModeOption<Double>(title, value, tooltip) {
+    override fun widget(x: Int, y: Int, width: Int, height: Int) = OptionSliderWidget(this, x, y, width, height, text, to(value)) {
+        value = from(it)
+        onValueChange?.invoke(value)
+    }
 
-    override fun value() = String.format("%.1f", from(value))
+    override fun value() = String.format("%.1f", value)
 }

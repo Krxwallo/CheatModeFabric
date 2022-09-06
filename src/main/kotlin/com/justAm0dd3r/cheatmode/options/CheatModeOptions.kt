@@ -4,7 +4,9 @@ import com.justAm0dd3r.cheatmode.ConfigManager
 import com.justAm0dd3r.cheatmode.mc
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
+import net.minecraft.util.math.MathHelper
 import java.util.*
+import kotlin.math.sqrt
 
 @Environment(EnvType.CLIENT)
 val options = arrayOf(
@@ -17,7 +19,7 @@ val options = arrayOf(
         ConfigManager.save()
         if (!it) mc.player?.abilities?.flying = false
     },
-    DoubleOption("cheatmode.options.reach", ConfigManager.client.reach, {it * 50}, {it / 50}).onChange {
+    DoubleOption("cheatmode.options.reach", ConfigManager.client.reach, { MathHelper.square(it) * 50 }, { sqrt(it / 50) }).onChange {
         ConfigManager.client.reach = it
         ConfigManager.save()
     }

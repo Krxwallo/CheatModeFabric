@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.justAm0dd3r"
-version = "1.19.2-1.0.0-alpha.4"
+version = "1.19.2-1.0.0-alpha.5"
 
 repositories {
     mavenCentral()
