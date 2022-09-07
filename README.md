@@ -1,7 +1,7 @@
 ![Curseforge Banner](https://mc.lookonthebrightsi.de/cheat_mode/images/main_trimmed.png)
 
-[![Versions](http://cf.way2muchnoise.eu/versions/MC_cheat-mode-fabric_latest.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/cheat-mode-fabric)
-[![Downloads](http://cf.way2muchnoise.eu/short_cheat-mode-fabric.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/cheat-mode-fabric)
+[![Versions](http://cf.way2muchnoise.eu/versions/MC_666020_latest.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/cheat-mode-fabric)
+[![Downloads](http://cf.way2muchnoise.eu/short_666020.svg?badge_style=for_the_badge)](https://www.curseforge.com/minecraft/mc-mods/cheat-mode-fabric)
 
 # Cheat Mode (Fabric)
 
