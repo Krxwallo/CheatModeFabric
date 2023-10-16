@@ -1,7 +1,7 @@
-package com.justAm0dd3r.cheatmode.mixins;
+package io.github.krxwallo.cheatmode.mixins;
 
-import com.justAm0dd3r.cheatmode.ConfigManager;
-import com.justAm0dd3r.cheatmode.ManagerKt;
+import io.github.krxwallo.cheatmode.ConfigManager;
+import io.github.krxwallo.cheatmode.ManagerKt;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.player.PlayerAbilities;
 import org.objectweb.asm.Opcodes;

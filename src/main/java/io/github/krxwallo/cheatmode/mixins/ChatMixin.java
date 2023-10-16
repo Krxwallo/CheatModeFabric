@@ -1,6 +1,6 @@
-package com.justAm0dd3r.cheatmode.mixins;
+package io.github.krxwallo.cheatmode.mixins;
 
-import com.justAm0dd3r.cheatmode.ManagerKt;
+import io.github.krxwallo.cheatmode.ManagerKt;
 import net.minecraft.client.network.message.MessageHandler;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableTextContent;

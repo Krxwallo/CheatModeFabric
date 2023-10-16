@@ -1,6 +1,6 @@
-package com.justAm0dd3r.cheatmode.widget
+package io.github.krxwallo.cheatmode.widget
 
-import com.justAm0dd3r.cheatmode.options.CheatModeOption
+import io.github.krxwallo.cheatmode.options.CheatModeOption
 import net.minecraft.client.gui.widget.SliderWidget
 import net.minecraft.text.Text
 

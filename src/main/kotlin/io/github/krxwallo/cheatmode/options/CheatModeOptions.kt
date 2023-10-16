@@ -1,11 +1,10 @@
-package com.justAm0dd3r.cheatmode.options
+package io.github.krxwallo.cheatmode.options
 
-import com.justAm0dd3r.cheatmode.ConfigManager
-import com.justAm0dd3r.cheatmode.mc
+import io.github.krxwallo.cheatmode.ConfigManager
+import io.github.krxwallo.cheatmode.mc
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
 import net.minecraft.util.math.MathHelper
-import java.util.*
 import kotlin.math.sqrt
 
 @Environment(EnvType.CLIENT)

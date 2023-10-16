@@ -1,4 +1,4 @@
-package com.justAm0dd3r.cheatmode
+package io.github.krxwallo.cheatmode
 
 import net.fabricmc.api.ClientModInitializer
 import net.minecraft.client.MinecraftClient

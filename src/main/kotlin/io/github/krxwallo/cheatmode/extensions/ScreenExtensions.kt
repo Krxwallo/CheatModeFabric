@@ -1,6 +1,6 @@
-package com.justAm0dd3r.cheatmode.extensions
+package io.github.krxwallo.cheatmode.extensions
 
-import com.justAm0dd3r.cheatmode.mixins.ScreenAccessor
+import io.github.krxwallo.cheatmode.mixins.ScreenAccessor
 import net.minecraft.client.gui.Drawable
 import net.minecraft.client.gui.Element
 import net.minecraft.client.gui.Selectable

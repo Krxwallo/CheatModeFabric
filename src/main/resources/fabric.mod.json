@@ -5,7 +5,7 @@
   "name": "Cheat Mode",
   "description": "Access the creative inventory from survival, configure your reach, disable damage, etc.\nFor testing stuff out in survival.\nNeeds gamemode permissions to work correctly on servers!",
   "authors": [
-    "JustAm0dd3r"
+    "Krxwallo"
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/cheat-mode-fabric",
@@ -19,7 +19,7 @@
     "client": [
       {
         "adapter": "kotlin",
-        "value": "com.justAm0dd3r.cheatmode.Manager"
+        "value": "io.github.krxwallo.cheatmode.Manager"
       }
     ]
   },
@@ -27,8 +27,8 @@
     "cheatmode.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.13.1",
-    "minecraft": "1.19.x",
+    "fabricloader": ">=0.14",
+    "minecraft": "1.20.x",
     "java": ">=17",
     "fabric-language-kotlin": "*",
     "fabric": "*",

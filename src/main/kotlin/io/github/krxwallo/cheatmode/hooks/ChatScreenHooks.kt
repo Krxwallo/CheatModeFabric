@@ -1,7 +1,7 @@
-package com.justAm0dd3r.cheatmode.hooks
+package io.github.krxwallo.cheatmode.hooks
 
-import com.justAm0dd3r.cheatmode.extensions.addDrawableChild
-import com.justAm0dd3r.cheatmode.options.options
+import io.github.krxwallo.cheatmode.extensions.addDrawableChild
+import io.github.krxwallo.cheatmode.options.options
 import net.minecraft.client.gui.screen.ChatScreen
 
 object ChatScreenHooks {

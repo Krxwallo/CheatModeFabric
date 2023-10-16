@@ -1,8 +1,7 @@
-package com.justAm0dd3r.cheatmode
+package io.github.krxwallo.cheatmode
 
 import com.mojang.logging.LogUtils
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.io.File
@@ -27,6 +26,7 @@ object ConfigManager {
     private val configFile = File("${mc.runDirectory}${File.separator}config${File.separator}cheatmode-client.json").apply {
         if (!exists()) {
             LogUtils.getLogger().warn("No config file found. Creating new one.")
+            parentFile.mkdirs()
             writeText("{}")
         }
     }

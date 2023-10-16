@@ -1,7 +1,7 @@
-package com.justAm0dd3r.cheatmode.options
+package io.github.krxwallo.cheatmode.options
 
-import com.justAm0dd3r.cheatmode.widget.OptionSliderWidget
-import net.minecraft.client.gui.widget.ButtonWidget
+import io.github.krxwallo.cheatmode.widget.OptionSliderWidget
+import io.github.krxwallo.cheatmode.widget.SimpleButtonWidget
 import net.minecraft.client.gui.widget.ClickableWidget
 import net.minecraft.text.Text
 
@@ -19,7 +19,7 @@ sealed class CheatModeOption<T>(private val title: String, var value: T, val too
 }
 
 class BooleanOption(title: String, value: Boolean, tooltip: String? = null) : CheatModeOption<Boolean>(title, value, tooltip) {
-    override fun widget(x: Int, y: Int, width: Int, height: Int) = ButtonWidget(x, y, width, height, text) {
+    override fun widget(x: Int, y: Int, width: Int, height: Int) = SimpleButtonWidget(x, y, width, height, text) {
         value = !value
         it.message = text
         onValueChange?.invoke(value)

@@ -1,4 +1,4 @@
-package com.justAm0dd3r.cheatmode.mixins;
+package io.github.krxwallo.cheatmode.mixins;
 
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import org.spongepowered.asm.mixin.Mixin;

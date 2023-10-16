@@ -1,4 +1,4 @@
-package com.justAm0dd3r.cheatmode.mixins;
+package io.github.krxwallo.cheatmode.mixins;
 
 // TODO fix reach/range problems
 /*@Mixin(GameRenderer.class)

@@ -1,6 +1,6 @@
-package com.justAm0dd3r.cheatmode.mixins;
+package io.github.krxwallo.cheatmode.mixins;
 
-import com.justAm0dd3r.cheatmode.hooks.InteractionManagerHooks;
+import io.github.krxwallo.cheatmode.hooks.InteractionManagerHooks;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.world.GameMode;
 import org.spongepowered.asm.mixin.Mixin;
