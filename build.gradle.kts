@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.krxwallo"
-version = "1.20.X-1.1.1-alpha"
+version = "1.20.4-1.1.1-alpha"
 
 repositories {
     mavenCentral()
