@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 
 class ItemButton(x: Int, y: Int, action: PressAction) : ButtonWidget(x, y, 16, 16, Text.empty(), action, DEFAULT_NARRATION_SUPPLIER) {
-    override fun renderButton(drawContext: DrawContext?, i: Int, j: Int, f: Float) {
+    override fun renderWidget(drawContext: DrawContext?, i: Int, j: Int, f: Float) {
         //mc.itemRenderer
         alpha = 200.0f
 
@@ -26,6 +26,6 @@ class ItemButton(x: Int, y: Int, action: PressAction) : ButtonWidget(x, y, 16, 1
         renderer.zOffset = 0.0f
 */
 
-        super.renderButton(drawContext, i, j, f)
+        super.renderWidget(drawContext, i, j, f)
     }
 }
