@@ -18,8 +18,12 @@ val options = arrayOf(
         ConfigManager.save()
         if (!it) mc.player?.abilities?.flying = false
     },
-    DoubleOption("cheatmode.options.reach", ConfigManager.client.reach, { MathHelper.square(it) * 50 }, { sqrt(it / 50) }).onChange {
-        ConfigManager.client.reach = it
+    DoubleOption("cheatmode.options.interaction_reach", ConfigManager.client.interactionReach, { MathHelper.square(it) * 50 }, { sqrt(it / 50) }).onChange {
+        ConfigManager.client.interactionReach = it
+        ConfigManager.save()
+    },
+    DoubleOption("cheatmode.options.block_reach", ConfigManager.client.blockReach, { MathHelper.square(it) * 50 }, { sqrt(it / 50) }).onChange {
+        ConfigManager.client.blockReach = it
         ConfigManager.save()
     }
 )

@@ -27,9 +27,4 @@ public class InteractionManagerMixin {
     public void hasExperience(CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(InteractionManagerHooks.INSTANCE.hasBars());
     }
-
-    @Inject(at = @At("HEAD"), method = "getReachDistance", cancellable = true)
-    public void getReachDistance(CallbackInfoReturnable<Float> cir) {
-        cir.setReturnValue(InteractionManagerHooks.INSTANCE.getReach());
-    }
 }

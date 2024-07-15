@@ -11,7 +11,8 @@ import java.io.File
 data class ClientConfig(
     var instantCreativeInventory: Boolean = true,
     var flight: Boolean = false,
-    var reach: Double = 3.0,
+    var interactionReach: Double = 3.0,
+    var blockReach: Double = 4.5,
 )
 
 object ConfigManager {

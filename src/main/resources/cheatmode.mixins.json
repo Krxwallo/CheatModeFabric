@@ -8,6 +8,8 @@
   "mixins": [
   ],
   "client": [
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
     "AbstractParentElementMixin",
     "ChatMixin",
     "ChatScreenMixin",

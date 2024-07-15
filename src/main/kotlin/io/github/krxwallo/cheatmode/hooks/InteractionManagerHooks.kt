@@ -1,6 +1,5 @@
 package io.github.krxwallo.cheatmode.hooks
 
-import io.github.krxwallo.cheatmode.ConfigManager
 import io.github.krxwallo.cheatmode.Manager
 import io.github.krxwallo.cheatmode.mc
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen
@@ -17,6 +16,4 @@ object InteractionManagerHooks {
     }
 
     fun hasBars() = mc.interactionManager!!.currentGameMode.isSurvivalLike || Manager.screenOpen
-
-    fun getReach() = ConfigManager.client.reach.toFloat()
 }

@@ -11,7 +11,6 @@ import net.minecraft.client.gui.screen.ingame.InventoryScreen
 import net.minecraft.client.gui.widget.ButtonWidget
 import net.minecraft.text.Text
 import net.minecraft.world.GameMode
-import net.silkmc.silk.core.entity.executeCommand
 
 object ScreenHooks {
     var button: ButtonWidget? = null
@@ -37,7 +36,7 @@ object ScreenHooks {
             if (isSingleplayer) serverPlayer?.changeGameMode(Manager.previousGameMode)
             else {
                 // Server -> send command
-                mc.player?.executeCommand("gamemode ${Manager.previousGameMode.name.lowercase()}")
+                mc.player?.networkHandler?.sendCommand("gamemode ${Manager.previousGameMode.name.lowercase()}")
             }
         }
     }
@@ -45,13 +44,12 @@ object ScreenHooks {
     // try to set gamemode to creative
     private fun creative() {
         Manager.previousGameMode = mc.interactionManager?.currentGameMode ?: return
-
         if (isSingleplayer) serverPlayer?.changeGameMode(GameMode.CREATIVE)
-        else mc.player?.executeCommand("gamemode creative")
+        else mc.player?.networkHandler?.sendCommand("gamemode creative")
     }
 
     fun onScreenDraw(screen: Screen, drawContext: DrawContext, mouseX: Int, mouseY: Int) {
-        if (screen is InventoryScreen && button?.isMouseOver(mouseX.toDouble(), mouseY.toDouble()) == true)
+        if (!ConfigManager.client.instantCreativeInventory && screen is InventoryScreen && button?.isMouseOver(mouseX.toDouble(), mouseY.toDouble()) == true)
             drawContext.drawTooltip(mc.textRenderer, Text.translatable("gui.cheatmode.open_creative_inventory"), mouseX, mouseY)
     }
 }
