@@ -1,6 +1,6 @@
 package io.github.krxwallo.cheatmode.mixins;
 
-import com.llamalad7.mixinextras.injector.WrapWithCondition;
+import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import io.github.krxwallo.cheatmode.hooks.ScreenHooks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
