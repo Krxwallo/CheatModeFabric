@@ -8,14 +8,15 @@
   "mixins": [
   ],
   "client": [
-    "LivingEntityMixin",
-    "PlayerEntityMixin",
     "AbstractParentElementMixin",
     "ChatMixin",
     "ChatScreenMixin",
     "ClientPlayerMixin",
     "HandledScreenAccessor",
     "InteractionManagerMixin",
+    "LivingEntityMixin",
+    "MinecraftClientMixin",
+    "PlayerEntityMixin",
     "ScreenAccessor",
     "ScreenMixin"
   ]
