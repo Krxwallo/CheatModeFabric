@@ -4,6 +4,8 @@ import net.fabricmc.api.ClientModInitializer
 import net.minecraft.client.MinecraftClient
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.world.GameMode
+import net.silkmc.silk.commands.*
+import net.silkmc.silk.core.text.literal
 
 val mc: MinecraftClient get() = MinecraftClient.getInstance()
 val isSingleplayer: Boolean get() = mc.isInSingleplayer
@@ -15,5 +17,17 @@ object Manager: ClientModInitializer {
 
     override fun onInitializeClient() {
         ConfigManager.init()
+
+        clientCommand("survivalfix") {
+            runs {
+                if (isSingleplayer) {
+                    serverPlayer?.changeGameMode(GameMode.SURVIVAL)
+                    source.sendSuccess("Set gamemode to survival.".literal)
+                }
+                else {
+                    source.sendFailure("Doesn't work in multiplayer.".literal)
+                }
+            }
+        }
     }
 }

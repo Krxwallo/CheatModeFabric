@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "io.github.krxwallo"
-version = "1.21-1.2.1-beta"
+version = "1.21-1.2.1-beta-survivalfix"
 
 repositories {
     mavenCentral()
@@ -24,6 +24,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-language-kotlin:1.10.19+kotlin.1.9.23")
 
     modImplementation("net.silkmc:silk-core:$silkVersion")
+    modImplementation("net.silkmc:silk-commands:$silkVersion")
 }
 
 tasks {
