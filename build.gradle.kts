@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "io.github.krxwallo"
-version = "26.1.1-1.2.2-beta"
+version = "26.1.1-1.2.3-beta"
 
 java {
     toolchain {

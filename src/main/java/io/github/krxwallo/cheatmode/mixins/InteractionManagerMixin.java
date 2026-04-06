@@ -17,13 +17,13 @@ public class InteractionManagerMixin {
     }
 
     // Render survival hearts when "cheat mode screen" is open
-    @Inject(at = @At("HEAD"), method = "hasStatusBars", cancellable = true)
-    public void hasStatusBars(CallbackInfoReturnable<Boolean> cir) {
+    @Inject(at = @At("HEAD"), method = "canHurtPlayer", cancellable = true)
+    public void canHurtPlayer(CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(InteractionManagerHooks.INSTANCE.hasBars());
     }
 
     // Render experience bar when "cheat mode screen" is open
-    @Inject(at = @At("HEAD"), method = "hasExperienceBar", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "hasExperience", cancellable = true)
     public void hasExperience(CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(InteractionManagerHooks.INSTANCE.hasBars());
     }
