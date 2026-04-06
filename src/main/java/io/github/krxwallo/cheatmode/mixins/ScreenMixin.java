@@ -12,13 +12,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Screen.class)
 public class ScreenMixin {
-    @Inject(at = @At("TAIL"), method = "init()V")
-    public void init(CallbackInfo ci) {
+    @Inject(at = @At("TAIL"), method = "init(II)V")
+    public void init(int width, int height, CallbackInfo ci) {
         ScreenHooks.INSTANCE.onScreenInit((Screen) (Object) this);
     }
 
     @Inject(at = @At("TAIL"), method = "onClose()V")
     public void close(CallbackInfo ci) {
+        ScreenHooks.INSTANCE.onScreenClose((Screen) (Object) this);
+    }
+
+    @Inject(at = @At("TAIL"), method = "removed()V")
+    public void removed(CallbackInfo ci) {
         ScreenHooks.INSTANCE.onScreenClose((Screen) (Object) this);
     }
 
