@@ -4,7 +4,7 @@ import io.github.krxwallo.cheatmode.ConfigManager
 import io.github.krxwallo.cheatmode.mc
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
-import net.minecraft.util.math.MathHelper
+import net.minecraft.util.Mth
 import kotlin.math.sqrt
 
 @Environment(EnvType.CLIENT)
@@ -18,11 +18,11 @@ val options = arrayOf(
         ConfigManager.save()
         if (!it) mc.player?.abilities?.flying = false
     },
-    DoubleOption("cheatmode.options.interaction_reach", ConfigManager.client.interactionReach, { MathHelper.square(it) * 50 }, { sqrt(it / 50) }).onChange {
+    DoubleOption("cheatmode.options.interaction_reach", ConfigManager.client.interactionReach, { Mth.square(it) * 50 }, { sqrt(it / 50) }).onChange {
         ConfigManager.client.interactionReach = it
         ConfigManager.save()
     },
-    DoubleOption("cheatmode.options.block_reach", ConfigManager.client.blockReach, { MathHelper.square(it) * 50 }, { sqrt(it / 50) }).onChange {
+    DoubleOption("cheatmode.options.block_reach", ConfigManager.client.blockReach, { Mth.square(it) * 50 }, { sqrt(it / 50) }).onChange {
         ConfigManager.client.blockReach = it
         ConfigManager.save()
     }

@@ -24,7 +24,7 @@ object ConfigManager {
         ignoreUnknownKeys = true
     }
 
-    private val configFile = File("${mc.runDirectory}${File.separator}config${File.separator}cheatmode-client.json").apply {
+    private val configFile = File("${mc.gameDirectory}${File.separator}config${File.separator}cheatmode-client.json").apply {
         if (!exists()) {
             LogUtils.getLogger().warn("No config file found. Creating new one.")
             parentFile.mkdirs()

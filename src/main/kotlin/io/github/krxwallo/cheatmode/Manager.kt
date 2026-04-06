@@ -1,17 +1,18 @@
 package io.github.krxwallo.cheatmode
 
 import net.fabricmc.api.ClientModInitializer
-import net.minecraft.client.MinecraftClient
-import net.minecraft.server.network.ServerPlayerEntity
-import net.minecraft.world.GameMode
+import net.minecraft.client.Minecraft
+import net.minecraft.server.level.ServerPlayer
+import net.minecraft.world.level.GameType
 
-val mc: MinecraftClient get() = MinecraftClient.getInstance()
-val isSingleplayer: Boolean get() = mc.isInSingleplayer
-val serverPlayer: ServerPlayerEntity? get() = mc.server?.playerManager?.getPlayer(mc.player?.uuid)
+val mc: Minecraft get() = Minecraft.getInstance()
+val isSingleplayer: Boolean get() = mc.isSingleplayer
+val serverPlayer: ServerPlayer?
+    get() = mc.player?.uuid?.let { mc.singleplayerServer?.playerList?.getPlayer(it) }
 
 object Manager: ClientModInitializer {
     var screenOpen = false
-    var previousGameMode = GameMode.SURVIVAL
+    var previousGameMode = GameType.SURVIVAL
 
     override fun onInitializeClient() {
         ConfigManager.init()

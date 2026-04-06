@@ -1,18 +1,18 @@
 package io.github.krxwallo.cheatmode.mixins;
 
 import io.github.krxwallo.cheatmode.hooks.InteractionManagerHooks;
-import net.minecraft.client.network.ClientPlayerInteractionManager;
-import net.minecraft.world.GameMode;
+import net.minecraft.client.multiplayer.MultiPlayerGameMode;
+import net.minecraft.world.level.GameType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(ClientPlayerInteractionManager.class)
+@Mixin(MultiPlayerGameMode.class)
 public class InteractionManagerMixin {
-    @Inject(at = @At("HEAD"), method = "setGameMode")
-    public void setLocalMode(GameMode gameMode, CallbackInfo ci) {
+    @Inject(at = @At("HEAD"), method = "setLocalMode(Lnet/minecraft/world/level/GameType;)V")
+    public void setLocalMode(GameType gameMode, CallbackInfo ci) {
         InteractionManagerHooks.INSTANCE.setMode(gameMode);
     }
 

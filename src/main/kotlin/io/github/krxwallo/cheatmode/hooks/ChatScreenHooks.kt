@@ -2,7 +2,7 @@ package io.github.krxwallo.cheatmode.hooks
 
 import io.github.krxwallo.cheatmode.extensions.addDrawableChild
 import io.github.krxwallo.cheatmode.options.options
-import net.minecraft.client.gui.screen.ChatScreen
+import net.minecraft.client.gui.screens.ChatScreen
 
 object ChatScreenHooks {
     fun init(screen: ChatScreen) {

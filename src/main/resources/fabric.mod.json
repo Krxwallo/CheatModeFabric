@@ -27,11 +27,10 @@
     "cheatmode.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15",
-    "minecraft": "1.21.x",
-    "java": ">=21",
+    "fabricloader": ">=0.18.6",
+    "minecraft": "~26.1",
+    "java": ">=25",
     "fabric-language-kotlin": "*",
-    "fabric": "*",
-    "silk-core": "*"
+    "fabric-api": "*"
   }
 }

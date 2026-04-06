@@ -2,18 +2,18 @@ package io.github.krxwallo.cheatmode.hooks
 
 import io.github.krxwallo.cheatmode.Manager
 import io.github.krxwallo.cheatmode.mc
-import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen
-import net.minecraft.client.gui.screen.ingame.InventoryScreen
-import net.minecraft.resource.featuretoggle.FeatureSet
-import net.minecraft.world.GameMode
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen
+import net.minecraft.client.gui.screens.inventory.InventoryScreen
+import net.minecraft.world.flag.FeatureFlagSet
+import net.minecraft.world.level.GameType
 
 object InteractionManagerHooks {
-    fun setMode(mode: GameMode) {
-        if (mc.currentScreen is InventoryScreen && mode.isCreative) {
+    fun setMode(mode: GameType) {
+        if (mc.screen is InventoryScreen && mode.isCreative) {
             Manager.screenOpen = true
-            mc.setScreenAndRender(CreativeInventoryScreen(mc.player ?: return, FeatureSet.empty(), true))
+            mc.setScreenAndShow(CreativeModeInventoryScreen(mc.player ?: return, FeatureFlagSet.of(), true))
         }
     }
 
-    fun hasBars() = mc.interactionManager!!.currentGameMode.isSurvivalLike || Manager.screenOpen
+    fun hasBars() = mc.gameMode?.playerMode?.isSurvival == true || Manager.screenOpen
 }

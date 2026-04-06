@@ -1,29 +1,39 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
-val javaVersion = JvmTarget.JVM_21
-val silkVersion = "1.10.7"
+val javaVersion = JvmTarget.JVM_25
+val minecraftVersion = "26.1.1"
+val fabricLoaderVersion = "0.18.6"
+val fabricApiVersion = "0.145.4+26.1.1"
+val fabricLanguageKotlinVersion = "1.13.10+kotlin.2.3.20"
 
 plugins {
-    kotlin("jvm") version "2.0.0"
-    id("fabric-loom") version "1.7-SNAPSHOT"
-    kotlin("plugin.serialization") version "2.0.0"
+    kotlin("jvm") version "2.3.20"
+    id("net.fabricmc.fabric-loom") version "1.16.1"
+    kotlin("plugin.serialization") version "2.3.20"
 }
 
 group = "io.github.krxwallo"
-version = "1.21-1.2.1-beta"
+version = "26.1.1-1.2.1-beta"
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(javaVersion.target.toInt())
+    }
+}
+
+kotlin {
+    jvmToolchain(javaVersion.target.toInt())
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:1.21")
-    mappings("net.fabricmc:yarn:1.21+build.9")
-    modImplementation("net.fabricmc:fabric-loader:0.16.0")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:0.100.7+1.21")
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.10.19+kotlin.1.9.23")
-
-    modImplementation("net.silkmc:silk-core:$silkVersion")
+    minecraft("com.mojang:minecraft:$minecraftVersion")
+    implementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
+    implementation("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
+    implementation("net.fabricmc:fabric-language-kotlin:$fabricLanguageKotlinVersion")
 }
 
 tasks {

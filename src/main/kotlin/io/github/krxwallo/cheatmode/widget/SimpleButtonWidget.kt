@@ -1,9 +1,9 @@
 package io.github.krxwallo.cheatmode.widget
 
-import net.minecraft.client.gui.widget.ButtonWidget
-import net.minecraft.text.Text
+import net.minecraft.client.gui.components.Button
+import net.minecraft.network.chat.Component
 
-class SimpleButtonWidget(x: Int, y: Int, width: Int, height: Int, text: Text?, pressAction: PressAction?
-) : ButtonWidget(x, y, width, height, text,
-    pressAction, DEFAULT_NARRATION_SUPPLIER
-)
+fun SimpleButtonWidget(x: Int, y: Int, width: Int, height: Int, text: Component, pressAction: Button.OnPress): Button =
+    Button.builder(text, pressAction)
+        .bounds(x, y, width, height)
+        .build()
