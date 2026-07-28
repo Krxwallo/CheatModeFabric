@@ -12,9 +12,6 @@ public class MinecraftClientMixin {
     @Inject(method = "stop", at = @At("HEAD"))
     private void onStop(CallbackInfo ci) {
         // fix stuck in creative mode
-        var minecraft = (Minecraft) (Object) this;
-        if (minecraft.screen != null) {
-            ScreenHooks.INSTANCE.onScreenClose(minecraft.screen);
-        }
+        ScreenHooks.INSTANCE.restorePreviousGameMode();
     }
 }

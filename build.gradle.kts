@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 val javaVersion = JvmTarget.JVM_25
-val minecraftVersion = "26.1.1"
-val fabricLoaderVersion = "0.18.6"
-val fabricApiVersion = "0.145.4+26.1.1"
+val minecraftVersion = "26.2"
+val fabricLoaderVersion = "0.19.3"
+val fabricApiVersion = "0.156.0+26.2"
 val fabricLanguageKotlinVersion = "1.13.10+kotlin.2.3.20"
 
 plugins {
@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "io.github.krxwallo"
-version = "26.1.1-1.2.3-beta"
+version = "26.2-1.3.0-beta"
 
 java {
     toolchain {

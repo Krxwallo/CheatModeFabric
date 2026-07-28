@@ -27,20 +27,62 @@ object ScreenHooks {
     }
 
     fun onScreenClose(screen: Screen) {
-        if (screen is CreativeModeInventoryScreen) {
-            if (!Manager.screenOpen) return
-            Manager.screenOpen = false
-
-            if (isSingleplayer) serverPlayer?.setGameMode(Manager.previousGameMode)
-            else {
-                mc.player?.connection?.sendCommand("gamemode ${Manager.previousGameMode.name.lowercase()}")
-            }
+        if (screen is CreativeModeInventoryScreen && Manager.screenOpen) {
+            restorePreviousGameMode()
         }
     }
 
+    fun onLocalGameModeChange(mode: GameType) {
+        if (!mode.isCreative || !Manager.temporaryCreative || !Manager.pendingCreativeScreen) return
+        Manager.pendingCreativeScreen = false
+
+        val player = mc.player
+        if (player == null || mc.gui.screen() !is InventoryScreen) {
+            restorePreviousGameMode()
+            return
+        }
+
+        Manager.screenOpen = true
+        mc.gui.setScreen(CreativeModeInventoryScreen(
+            player,
+            player.connection.enabledFeatures(),
+            mc.options.operatorItemsTab().get()
+        ))
+    }
+
+    fun restorePreviousGameMode() {
+        if (!Manager.temporaryCreative) return
+
+        if (isSingleplayer) {
+            val player = serverPlayer ?: return
+            player.setGameMode(Manager.previousGameMode)
+        } else {
+            val player = mc.player ?: return
+            player.connection.sendCommand("gamemode ${Manager.previousGameMode.name.lowercase()}")
+        }
+
+        Manager.temporaryCreative = false
+        Manager.pendingCreativeScreen = false
+        Manager.screenOpen = false
+    }
+
     private fun creative() {
-        Manager.previousGameMode = mc.gameMode?.playerMode ?: return
-        if (isSingleplayer) serverPlayer?.setGameMode(GameType.CREATIVE)
+        val currentMode = mc.gameMode?.playerMode ?: return
+        if (currentMode.isCreative) return
+
+        Manager.previousGameMode = currentMode
+        Manager.pendingCreativeScreen = mc.gui.screen() is InventoryScreen
+        Manager.temporaryCreative = true
+
+        if (isSingleplayer) {
+            val player = serverPlayer
+            if (player == null) {
+                Manager.temporaryCreative = false
+                Manager.pendingCreativeScreen = false
+                return
+            }
+            player.setGameMode(GameType.CREATIVE)
+        }
         else mc.player?.connection?.sendCommand("gamemode creative")
     }
 }
