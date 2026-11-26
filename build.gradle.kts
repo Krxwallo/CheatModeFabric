@@ -1,19 +1,19 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 val javaVersion = JvmTarget.JVM_25
-val minecraftVersion = "26.2"
-val fabricLoaderVersion = "0.19.3"
-val fabricApiVersion = "0.156.0+26.2"
-val fabricLanguageKotlinVersion = "1.13.10+kotlin.2.3.20"
+val minecraftVersion = "26.3"
+val fabricLoaderVersion = "0.20.1"
+val fabricApiVersion = "0.166.2+26.3"
+val fabricLanguageKotlinVersion = "1.14.2+kotlin.2.4.21"
 
 plugins {
-    kotlin("jvm") version "2.3.20"
-    id("net.fabricmc.fabric-loom") version "1.16.1"
-    kotlin("plugin.serialization") version "2.3.20"
+    kotlin("jvm") version "2.4.21"
+    id("net.fabricmc.fabric-loom") version "1.19-SNAPSHOT"
+    kotlin("plugin.serialization") version "2.4.21"
 }
 
 group = "io.github.krxwallo"
-version = "26.2-1.3.0-beta"
+version = "26.3-1.3.0-beta"
 
 java {
     toolchain {
