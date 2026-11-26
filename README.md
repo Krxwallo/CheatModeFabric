@@ -1,6 +1,6 @@
 # Cheat Mode (Fabric)
 
-*This is the fabric version of [Cheat Mode](https://github.com/Krxwallo/CheatMode).*
+*This is a port to 26.3 of the fabric version of [Cheat Mode](https://github.com/Krxwallo/CheatMode).*
 
 Cheat Mode is a mod that gives players an easy way to access the creative inventory from the survival mode,
 as well as some nice options. Since versions 2.0.0+ these can be changed in the **chat screen**.
